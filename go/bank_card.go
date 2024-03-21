@@ -5,6 +5,8 @@ package validator
 
 import "regexp"
 
+const bankCardRegexp string = ""
+
 // IsValidBankCard 银行卡号
 // Validate is the value a valid bank card number
 func IsValidBankCard(value string, allowBlank bool) bool {
@@ -12,5 +14,5 @@ func IsValidBankCard(value string, allowBlank bool) bool {
 		return allowBlank
 	}
 
-	return regexp.MustCompile(constBankCardRegStr).MatchString(value)
+	return regexp.MustCompile(bankCardRegexp).MatchString(value)
 }

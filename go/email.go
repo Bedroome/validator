@@ -3,6 +3,10 @@
 
 package validator
 
+import "regexp"
+
+const emailRegexp string = "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Z|a-z]{2,}\\b"
+
 // IsValidEmail 电子邮件
 // Validate is the value a valid email
 func IsValidEmail(value string, allowBlank bool) bool {
@@ -10,5 +14,5 @@ func IsValidEmail(value string, allowBlank bool) bool {
 		return allowBlank
 	}
 
-	return true
+	return regexp.MustCompile(emailRegexp).MatchString(value)
 }

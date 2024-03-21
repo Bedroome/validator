@@ -3,6 +3,8 @@
 
 package validator
 
+const alphaNumberRegexp string = "^[a-zA-Z][a-zA-Z0-9]*$"
+
 // IsValidAlphaNumber 字母数字标识符
 // Validate is the value a valid alpha number
 func IsValidAlphaNumber(value string, allowBlank bool) bool {
@@ -10,5 +12,5 @@ func IsValidAlphaNumber(value string, allowBlank bool) bool {
 		return allowBlank
 	}
 
-	return regexp.MustCompile(constAlphaNumberRegStr).MatchString(value)
+	return regexp.MustCompile(alphaNumberRegexp).MatchString(value)
 }

@@ -5,6 +5,9 @@ package validator
 
 import "regexp"
 
+// (?i) 定义了不区分大小写
+const httpUrlRegexp string ="(?i)^https?://(?:www\\.)?[\\w.-]+\\.[a-zA-Z]{2,}(?:/\\S*)?$"
+
 // IsValidHttpURL HTTP(S) URL
 // Validate is the value a valid phone number
 func IsValidHttpURL(value string, allowBlank bool) bool {
@@ -12,5 +15,5 @@ func IsValidHttpURL(value string, allowBlank bool) bool {
 		return allowBlank
 	}
 
-	return regexp.MustCompile(constHttpUrlRegStr).MatchString(value)
+	return regexp.MustCompile(httpUrlRegexp).MatchString(value)
 }
